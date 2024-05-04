@@ -1,29 +1,7 @@
 <script setup lang="ts">
 import { useChat } from 'ai/vue';
 
-const { messages, input, handleSubmit } = useChat();
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/components/ui/tooltip'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover'
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command'
-
-const open = ref(false);
+const { messages, input, handleSubmit, isLoading } = useChat();
 
 const ALL_AVAILABLE_REPLICATE_MODELS = [
   "Llama-2-70b-chat-old",
@@ -80,7 +58,7 @@ const onSubmit = async (e: Event) => {
           </Command>
         </PopoverContent>
       </Popover> -->
-      <nav class="mx-auto max-w-xl flex justify-between items-center p-4 ">
+      <nav class="mx-auto max-w-3xl flex justify-between items-center p-4 ">
         <h1 class="font-bold text-lg">Nuxt + LlamaIndex</h1>
         <Button variant="outline" size="sm" class="space-x-2">
           <Icon name="cib:github" />
@@ -89,24 +67,7 @@ const onSubmit = async (e: Event) => {
       </nav>
     </div>
 
-    <ChatMessages :messages="messages" />
-
-    <form class="p-4 w-full bg-gray-100 border-t" @submit="onSubmit">
-      <div class="relative max-w-xl mx-auto">
-        <Input v-model="input" class="w-full" placeholder="Say something..." />
-        <TooltipProvider :delay-duration="250">
-          <Tooltip>
-            <TooltipTrigger as-child>
-              <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 flex justify-center items-center">
-                <Icon name="cil:send" />
-              </button>
-            </TooltipTrigger>
-            <TooltipContent>
-              Send message
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-    </form>
+    <ChatMessages :messages="messages" :loading="isLoading" />
+    <ChatForm v-model="input" @submit="onSubmit" :loading="isLoading" />
   </div>
 </template>

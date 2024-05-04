@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ScrollAreaRoot, ScrollAreaScrollbar, ScrollAreaThumb, ScrollAreaViewport } from 'radix-vue'
 
-defineProps<{ messages: any[] }>()
+defineProps<{ messages: any[], loading?: boolean }>()
 </script>
 
 <template>
-    <ScrollAreaRoot class="w-full max-w-xl mx-auto min-h-[calc(100vh_-_var(--header-height)_-_var(--chatbar-height))] overflow-hidden"
+    <ScrollAreaRoot class="w-full max-w-3xl mx-auto min-h-[calc(100vh_-_var(--header-height)_-_var(--chatbar-height))] overflow-hidden"
         :style="{
-            '--header-height': '68.94px',
-            '--chatbar-height': '72.95px',
+            '--header-height': '68px',
+            '--chatbar-height': '64px',
             '--scrollbar-size': '10px'
         }">
         <ScrollAreaViewport class="w-full h-full">
