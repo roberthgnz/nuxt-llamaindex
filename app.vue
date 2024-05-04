@@ -57,8 +57,8 @@ const onSubmit = async (e: Event) => {
 </script>
 
 <template>
-  <div class="flex flex-col w-full max-w-xl py-24 mx-auto stretch">
-    <div class="flex justify-between items-center fixed left-0 top-0 p-4 w-full bg-gray-100 border-b">
+  <div class="h-screen flex flex-col w-full flex-1">
+    <div class="bg-gray-100 border-b">
       <!-- <Popover v-model:open="open">
         <PopoverTrigger as-child>
           <Button variant="outline" size="sm" class="font-normal">{{ currentModel }}</Button>
@@ -80,16 +80,18 @@ const onSubmit = async (e: Event) => {
           </Command>
         </PopoverContent>
       </Popover> -->
-      <h1 class="font-bold text-lg">Nuxt + LlamaIndex</h1>
-      <Button variant="outline" size="sm" class="space-x-2">
-        <Icon name="cib:github" />
-        <span>Open Source</span>
-      </Button>
+      <nav class="mx-auto max-w-xl flex justify-between items-center p-4 ">
+        <h1 class="font-bold text-lg">Nuxt + LlamaIndex</h1>
+        <Button variant="outline" size="sm" class="space-x-2">
+          <Icon name="cib:github" />
+          <span>Open Source</span>
+        </Button>
+      </nav>
     </div>
 
-  <ChatMessages :messages="messages" />
+    <ChatMessages :messages="messages" />
 
-    <form class="fixed left-0 bottom-0 p-4 w-full bg-gray-100 border-t" @submit="onSubmit">
+    <form class="p-4 w-full bg-gray-100 border-t" @submit="onSubmit">
       <div class="relative max-w-xl mx-auto">
         <Input v-model="input" class="w-full" placeholder="Say something..." />
         <TooltipProvider :delay-duration="250">
