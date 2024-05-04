@@ -15,10 +15,18 @@
     "ai": "^3.0.35",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "highlight.js": "^11.9.0",
     "llamaindex": "^0.2.13",
     "lucide-vue-next": "^0.376.0",
     "markdown-it": "^14.1.0",
+    "markdown-it-abbr": "^2.0.0",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-footnote": "^4.0.0",
     "markdown-it-highlightjs": "^4.0.1",
+    "markdown-it-sub": "^2.0.0",
+    "markdown-it-sup": "^2.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "markdown-it-toc-done-right": "^4.2.0",
     "nuxt": "^3.11.2",
     "nuxt-icon": "^0.6.10",
     "radix-vue": "^1.7.3",
@@ -26,11 +34,11 @@
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.21",
-    "vue-markdown-render": "^2.1.1",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
+    "@types/markdown-it": "^14.1.1",
     "ts-node": "^10.9.2"
   }
 }
