@@ -6,8 +6,9 @@ import {
 import { STORAGE_CACHE_DIR } from "./shared";
 
 export async function getDataSource() {
+  const isDev = process.env.NODE_ENV === "development";
   const storageContext = await storageContextFromDefaults({
-    persistDir: `${STORAGE_CACHE_DIR}`,
+    persistDir: isDev ? STORAGE_CACHE_DIR : undefined,
   });
 
   const numberOfDocs = Object.keys(
